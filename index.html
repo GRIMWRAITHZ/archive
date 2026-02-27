@@ -5,36 +5,79 @@
 <title>Classified Archive</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- ICONA -->
+<link rel="icon" type="image/png" href="icon.png">
+
 <style>
 body {
   margin: 0;
-  background-color: black;
-  color: #00ff00;
+  background-color: #000;
+  color: #ff0000;
   font-family: "Courier New", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
+  overflow: hidden;
 }
 
+/* Glitch Effect */
 h1 {
-  letter-spacing: 3px;
-  margin-bottom: 50px;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  position: relative;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0% {opacity: 1;}
+  50% {opacity: 0.8;}
+  52% {opacity: 0.3;}
+  54% {opacity: 1;}
+  100% {opacity: 1;}
 }
 
 .file {
-  margin: 15px;
-  padding: 15px 30px;
-  border: 1px solid #00ff00;
+  margin: 20px;
+  padding: 15px 40px;
+  border: 2px solid #ff0000;
   text-decoration: none;
-  color: #00ff00;
+  color: #ff0000;
   transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Hover effect */
 .file:hover {
-  background-color: #00ff00;
+  background-color: #ff0000;
   color: black;
+  box-shadow: 0 0 15px #ff0000;
+  transform: scale(1.05);
+}
+
+/* Pulsing border animation */
+.file::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #ff0000;
+  animation: pulse 2s infinite;
+  opacity: 0.3;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.8rem;
+  color: #550000;
 }
 </style>
 
@@ -43,9 +86,13 @@ h1 {
 
 <h1>CLASSIFIED ARCHIVE</h1>
 
-<a href="file01.pdf" class="file" target="_blank">[ CLASSIFIED FILE 01 ]</a>
-<a href="file02.pdf" class="file" target="_blank">[ CLASSIFIED FILE 02 ]</a>
-<a href="file03.pdf" class="file" target="_blank">[ CLASSIFIED FILE 03 ]</a>
+<a href="file01.pdf" class="file" target="_blank">[ FILE 01 - RESTRICTED ]</a>
+<a href="file02.pdf" class="file" target="_blank">[ FILE 02 - CONFIDENTIAL ]</a>
+<a href="file03.pdf" class="file" target="_blank">[ FILE 03 - EYES ONLY ]</a>
+
+<footer>
+ACCESS LOGGED • UNAUTHORIZED DISTRIBUTION PROHIBITED
+</footer>
 
 </body>
 </html>
